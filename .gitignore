@@ -1,0 +1,201 @@
+# ==============================================
+# 通用基础忽略规则（适用于所有开发场景）
+# ==============================================
+# 操作系统相关
+.DS_Store                # macOS 资源文件
+Thumbs.db                # Windows 缩略图缓存
+*.swp                    # Vim 临时文件
+*.swo                    # Vim 交换文件
+*~                       # 类 Unix 临时文件（如 Emacs）
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+[Tt]humbs.db
+[Tt]mp/                  # 临时目录
+temp/
+tmp/
+
+# 版本控制辅助文件
+*.log                    # 日志文件
+*.bak                    # 备份文件
+*.backup
+*.orig                   # 原始文件（如 git merge 冲突产生）
+*.rej                    # 冲突拒绝文件
+.DIR_METADATA
+.DIR_METADATA.json
+.env.local               # 本地环境变量（敏感信息）
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ==============================================
+# Python 开发专属忽略规则
+# ==============================================
+# 字节码与编译产物
+__pycache__/             # Python 编译缓存目录
+*.py[cod]                # Python 字节码文件
+*$py.class
+
+# 依赖与虚拟环境
+venv/                    # 虚拟环境目录（venv）
+env/                     # 虚拟环境目录（virtualenv）
+ENV/
+.env                     # 环境变量文件（若包含敏感信息）
+.venv/
+.pdm/                    # PDM 包管理缓存
+.pipenv/                 # Pipenv 缓存
+ poetry.lock             # Poetry 依赖锁定文件（按需保留，此处默认忽略）
+Pipfile.lock             # Pipenv 依赖锁定文件（按需保留）
+*.egg-info/              # 鸡蛋信息目录
+dist/                    # 打包输出目录
+build/                   # 编译输出目录
+*.whl                    # Python Wheel 包
+*.tar.gz                 # 源码包
+*.egg
+.mypy_cache/             # MyPy 类型检查缓存
+.ruff_cache/             # Ruff 代码检查缓存
+.pytest_cache/           # Pytest 测试缓存
+.tox/                    # Tox 测试环境
+.coverage                # 测试覆盖率文件
+htmlcov/                 # 覆盖率报告目录
+.ipynb_checkpoints/      # Jupyter Notebook 检查点
+.mamba/                  # Mamba 包管理缓存
+
+# ==============================================
+# 嵌入式开发专属忽略规则（C/C++/汇编/MCU）
+# ==============================================
+# 编译产物
+*.o                      # 目标文件
+*.obj                    # Windows 目标文件
+*.a                      # 静态库文件
+*.lib                    # Windows 静态库
+*.so                     # 动态库（Linux）
+*.dll                    # 动态库（Windows）
+*.dylib                  # 动态库（macOS）
+*.exe                    # 可执行文件（Windows）
+*.out                    # 可执行文件（Linux/macOS）
+*.elf                    # 嵌入式 ELF 镜像文件
+*.hex                    # 十六进制烧录文件
+*.bin                    # 二进制烧录文件
+*.srec                   # S-Record 烧录文件
+*.map                    # 链接映射文件
+*.lst                    # 汇编列表文件
+*.d                      # 依赖文件（Makefile 生成）
+*.dep                    # 依赖文件
+*.cdb                    # 调试信息文件
+*.lnk                    # 快捷方式文件
+
+# 编译目录与中间文件
+build/                   # 编译输出目录（通用）
+out/                     # 输出目录（通用）
+obj/                     # 目标文件目录
+bin/                     # 二进制文件目录
+dist/                    # 分发目录（与 Python 冲突时，嵌入式优先保留）
+release/                 # 发布版本目录
+debug/                   # 调试版本目录
+tmp/                     # 临时编译目录
+temp/                    # 临时目录
+objdump/                 # 反汇编输出目录
+listing/                 # 列表文件目录
+
+# 嵌入式工具链与 IDE 配置
+# Keil (MDK-ARM)
+*.uvopt                  # Keil 项目选项
+*.uvprojx                # Keil 项目文件
+*.uvgui.*                # Keil 图形界面配置
+*.dep                    # Keil 依赖文件
+*.lnp                    # Keil 链接输出
+*.htm                    # Keil 编译报告
+*.map                    # Keil 映射文件
+Objects/                 # Keil 目标文件目录
+Listings/                # Keil 列表文件目录
+
+# STM32CubeIDE / Eclipse
+.cproject                # Eclipse 项目文件
+.project                 # Eclipse 项目文件
+.settings/               # Eclipse 配置目录
+.launch                  # 调试启动配置
+*.tmp                    # 临时文件
+*.swp                    # 交换文件
+Debug/                   # STM32CubeIDE 调试目录
+Release/                 # STM32CubeIDE 发布目录
+
+# IAR Embedded Workbench
+*.ewp                    # IAR 项目文件
+*.eww                    # IAR 工作区文件
+*.ewt                    # IAR 工具链配置
+*.ewd                    # IAR 调试配置
+*.dep                    # IAR 依赖文件
+Debug/                   # IAR 调试目录
+Release/                 # IAR 发布目录
+*.iobj                   # IAR 目标文件
+*.ihex                   # IAR 十六进制文件
+*.implicit_deps          # IAR 隐式依赖
+*.llb                    # IAR 库文件
+
+# Makefile 相关
+Makefile.dep             # Makefile 依赖文件
+Makefile.in              # 自动生成的 Makefile
+make.log                 # Make 编译日志
+*.mak                    # 自定义 Makefile
+.depend                  # 依赖文件
+.build-stamp             # 构建标记文件
+
+# 其他嵌入式工具
+*.cfg                    # 配置文件（如 OpenOCD）
+*.tcl                    # TCL 脚本（调试/烧录）
+*.log                    # 工具日志（如烧录日志）
+*.trace                  # 跟踪文件
+*.dump                   # 内存 dump 文件
+*.bin                    # 二进制镜像（重复但强化）
+*.hex                    # 十六进制文件（重复但强化）
+*.s19                    # S19 烧录文件
+*.mot                    # Motorola 烧录文件
+*.cfg                    # 编译器/链接器配置
+
+# ==============================================
+# 通用 IDE/编辑器 配置（跨开发场景）
+# ==============================================
+# VS Code
+.vscode/                 # VS Code 配置目录（含调试、插件配置）
+!.vscode/extensions.json  # 保留插件推荐（按需开启）
+!.vscode/settings.json   # 保留通用设置（按需开启）
+!.vscode/tasks.json      # 保留构建任务（按需开启）
+!.vscode/launch.json     # 保留调试配置（按需开启）
+*.code-workspace         # VS Code 工作区文件
+
+# Vim
+*.swp
+*.swo
+*~
+.vimrc.local
+.vim/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+.sublime-build
+
+# JetBrains (CLion/IntelliJ/PyCharm)
+.idea/                   # JetBrains 配置目录
+*.iml                    # 模块文件
+*.iws                    # 工作区文件
+*.ipr                    # 项目文件
+out/                     # 输出目录
+
+# 其他编辑器
+.nvim/                   # Neovim 配置
+.atom/                   # Atom 配置
+*.bak                    # 备份文件（重复强化）
+*.tmp                    # 临时文件（重复强化）
+
+# ==============================================
+# 自定义保留规则（按需调整）
+# ==============================================
+# 若需保留某些文件，在前面加 !
+# 示例：
+# !.env.example           # 保留环境变量示例文件
+# !lib/*.a                # 保留特定静态库
+# !src/*.h                # 保留头文件（避免误删）
